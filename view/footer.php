@@ -93,7 +93,7 @@
         </div>
     </div> -->
     <!-- JS Shop -->
-    <script src="../view/assets/js/vendor/shop.js"></script>
+    <!-- <script src="../view/assets/js/vendor/shop.js"></script> -->
     <!-- Search model end -->
 
     <!-- JS here -->

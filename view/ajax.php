@@ -54,7 +54,7 @@
         foreach($_SESSION['filter'] as $f){
             switch($f['name']){
                 case 'brand':
-                    $where .= !empty($where) ? ' and idProduct in(Select idProduct from products INNER JOIN brand on idThuongHieu = idBrand where idBrand = '.$f['value'].')' : ' INNER JOIN brand on idThuongHieu = idBrand where idBrand = '.$f['value'].'';
+                    $where .= !empty($where) ? ' and idProduct in(Select idProduct from products INNER JOIN brand on idThuongHieu = idBrand where idThuongHieu = '.$f['value'].')' : ' INNER JOIN brand on idThuongHieu = idBrand where idThuongHieu = '.$f['value'].'';
                 break;
 
                 case 'Top':

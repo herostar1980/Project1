@@ -21,7 +21,7 @@
 
 <body>
     <!--? Preloader Start -->
-    <!-- <div id="preloader-active">
+    <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- Preloader Start -->
     <header>
         <!-- Header Start -->
@@ -73,7 +73,26 @@
                             <ul>
                                 <li>
                                     <div class="nav-search search-switch">
-                                        <span class="flaticon-search"></span>
+                                        <div id="search" class="search">
+                                            <span class="closebtn" onclick="closeSearch()" title="Close">×</span>
+                                            <div class="search-content">
+                                                <form action="/action_page.php">
+                                                <input type="text" placeholder="Search.." name="search">
+                                                <button type="submit"><i class="fas fa-search"></i></button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <button class="openBtn" onclick="openSearch()"><span class="flaticon-search"></span></button>
+                                        <script >
+                                            //search modal
+                                            function openSearch() {
+                                            document.getElementById("search").style.display = "block";
+                                            }
+
+                                            function closeSearch() {
+                                            document.getElementById("search").style.display = "none";
+                                            }
+                                        </script>
                                     </div>
                                 </li>
                                 <li> <a href="?act=login"><span class="flaticon-user"></span></a></li>
