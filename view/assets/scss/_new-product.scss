@@ -1,0 +1,89 @@
+.single-flash-sale{
+    .flash-sale-img {
+        overflow: hidden;
+        margin-bottom: 30px;
+        height: 400px;
+        img {
+            width:100%;
+            transform:scale(1);
+            object-fit: cover;
+           @include transition(.4s)
+           }
+       }
+    .flash-sale-caption {
+        h3 {
+           a{
+            color:#444444;
+            font-weight:700;
+            font-size:21px;
+            margin-bottom: 12px;
+            @media #{$sm}{
+                font-size:17px;
+            }
+            @media #{$xs}{
+                font-size:20px;
+            }
+           }
+        }
+    }
+    .flash-sale-content{
+        .price {
+            display: flex;
+            justify-content: space-evenly;
+            span{
+                &.new-price{
+                    color:#ff2020;
+                    font-size:22px;
+                    font-weight:700;
+                    display:block;
+                }
+                &.old-price{
+                    color:gray;
+                    text-decoration: line-through;
+                    font-size:18px;
+                    font-weight:500;
+                    display:block;
+                }
+              
+            }
+        }
+        .sold{
+            width: 60%;
+            margin:0 auto;
+            margin-top: 5px;
+            background: #a0a0a0cf;
+            border-radius: 9999px;
+            position: relative;
+            color: black;
+            font-size: 12px;
+            .percent{
+                position: absolute;
+                width: 30%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background-color: #ff9438bf;
+                border-top-left-radius: 9999px;
+                border-bottom-left-radius: 9999px;
+            }
+            .text{
+                p{
+                    color: white;
+                    font-size: 11px;
+                    line-height: 16px;
+                }
+            }
+        }
+        .countdown{
+            p{
+                font-size: 13px;
+            }
+           
+        }
+       
+    }
+}
+
+.single-flash-sale:hover .flash-sale-img img {
+    transform:scale(1.04)
+   }
