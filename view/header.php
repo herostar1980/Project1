@@ -21,7 +21,7 @@
 
 <body>
     <!--? Preloader Start -->
-    <div id="preloader-active">
+    <!-- <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Preloader Start -->
     <header>
         <!-- Header Start -->
@@ -50,12 +50,6 @@
                                     <li class="li-parents"><a href="?act=shop">shop</a></li>
                                     <li class="li-parents"><a href="?act=about">about</a></li>
                                     <li class="hot li-parents"><a href="?act=shop">Latest</a></li>
-                                    <li class="li-parents"><a href="?act=blog">Blog</a>
-                                        <ul class="submenu">
-                                            <li><a href="?act=blog">Blog</a></li>
-                                            <li><a href="?act=blog-details">Blog Details</a></li>
-                                        </ul>
-                                    </li>
                                     <li class="li-parents"><a href="#">Pages</a>
                                         <ul class="submenu">
                                             <li><a href="?act=login">Login</a></li>

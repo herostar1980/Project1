@@ -42,7 +42,9 @@
                     include "../view/product_details.php";
                     break;
             case 'shop':
-                $shop = getAllShop();
+                include "../model/ProductDetail.php";
+                include "../model/Products.php";
+                $products = getAllProduct($conn);
                 $brand = getAllBrand();
                 $group = getAllGroup();
                     include "../view/shop.php";

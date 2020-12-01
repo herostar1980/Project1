@@ -146,12 +146,12 @@
                     <div class="row" id="productWrapper">
                         <!--single-product-->
                         <?php
-                            foreach($shop as $product)
-                                echo '
+                            foreach($products as $product)
+                                { ?>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4">
                                         <div class="single-product-items mb-50 text-center">
                                             <div class="product-img">
-                                                <img src="../view/assets/img/gallery/louis-vuitton-cloud-print-t-shirt-ready-to-wear--HJY79WNPG617_PM2_Front view.webp" alt="product">
+                                                <img src="<?php echo $product['imgUrl'] ?>" alt="product">
                                                 <div class="img-cap">
                                                     <span>Add to cart</span>
                                                 </div>
@@ -160,12 +160,12 @@
                                                 </div>
                                             </div>
                                             <div class="product-caption">
-                                                <h3><a href="product_details.html">'.$product['nameProduct'].'</a></h3>
+                                                <h3><a href="product_details.html"><?=$product['nameProduct'];?></a></h3>
                                             </div>
                                             <div class="product-content">
                                                 <div class="price">
-                                                    <span class="new-price">$ '.$product['price'].'</span>
-                                                    <span class="old-price">$ '.$product['oldPrice'].'</span>
+                                                    <span class="new-price"><?=$product['price'];?></span>
+                                                    <span class="old-price"><?=$product['oldPrice'];?></span>
                                                 </div>
                                                 <div class="sold">
                                                     <div class="percent"></div>
@@ -175,8 +175,8 @@
                                             </div> 
                                         </div>
                                     </div>
-                                ';
-                            ?>
+                           <?php }; ?>
+                           
                         <!--single-product-->
                     </div>
                     <!--end row product-->

@@ -81,10 +81,10 @@
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                             <div class="single-flash-sale mb-30 text-center">
                                 <div class="flash-sale-img">
-                                    <img src="../view/assets/img/gallery/luonvuituoi--HP_SG_Men_PrecoSS21_M57282_DII.webp" alt="collection">
+                                    <img src="<?= $val['imgUrl']; ?>" alt="collection">
                                 </div>
                                 <div class="flash-sale-caption">
-                                    <h3><a href="?act=productDetail&id=<?= $val['idProduct'];?>"><?= $val['nameProduct'] ?></a></h3>
+                                    <h3 style=" overflow: hidden; white-space: nowrap; text-overflow: ellipsis; "><a title="<?= $val['nameProduct'] ?>" href="?act=productDetail&id=<?= $val['idProduct'];?>"><?= $val['nameProduct'] ?></a></h3>
                                 </div>
                                 <div class="flash-sale-content">
                                     <div class="price">
@@ -154,7 +154,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
-                                <img src="../view/assets/img/gallery/louis-vuitton-cloud-print-t-shirt-ready-to-wear--HJY79WNPG617_PM2_Front view.webp" alt="">
+                                <img src="<?= $val['imgUrl']; ?>" alt="Best Seller">
                                 <div class="img-cap">
                                     <span>Add to cart</span>
                                 </div>
@@ -207,14 +207,14 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-10">
                         <div class="choice-watch-img">
-                            <img src="../view/assets/img/gallery/louis-vuitton-cloud-print-t-shirt-ready-to-wear--HJY79WNPG617_PM2_Front view.webp" alt="">
+                            <img src="../view/assets/img/gallery/louis-vuitton-cloud-print-t-shirt-ready-to-wear--HJY79WNPG617_PM2_Frontview.webp" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="row align-items-center justify-content-between">
                     <div class="col-lg-4 col-md-4 col-sm-10">
                         <div class="choice-watch-img">
-                            <img src="../view/assets/img/gallery/louis-vuitton-cloud-print-t-shirt-ready-to-wear--HJY79WNPG617_PM2_Front view.webp" alt="">
+                            <img src="../view/assets/img/gallery/louis-vuitton-cloud-print-t-shirt-ready-to-wear--HJY79WNPG617_PM2_Frontview.webp" alt="">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4">

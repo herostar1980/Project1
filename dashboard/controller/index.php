@@ -63,6 +63,7 @@ if (isset($_GET['act'])) {
         case 'category': 
             $table = $_GET['act'];
             $data = $db->getObject($table);
+            $data_groupproduct = $db->getObject('groupproduct');
             $VIEW_NAME = '../view/admin/category/list.php';
             if (isset($_GET['delete'])) {
                 $id = (int)$_GET['delete'];
