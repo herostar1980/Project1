@@ -54,7 +54,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><button onclick="fill()" class="submit_btn">Fill</button></li>
                         </ul>
                     </nav>
                 </div>
@@ -160,12 +159,12 @@
                                                 </div>
                                             </div>
                                             <div class="product-caption">
-                                                <h3><a href="product_details.html"><?=$product['nameProduct'];?></a></h3>
+                                                <h3><a href="?act=productDetail&id=<?=$product['idProduct']; ?>"><?=$product['nameProduct'];?></a></h3>
                                             </div>
                                             <div class="product-content">
                                                 <div class="price">
-                                                    <span class="new-price"><?=$product['price'];?></span>
-                                                    <span class="old-price"><?=$product['oldPrice'];?></span>
+                                                    <span class="new-price">$<?=$product['price'];?></span>
+                                                    <span class="old-price">$<?=$product['oldPrice'];?></span>
                                                 </div>
                                                 <div class="sold">
                                                     <div class="percent"></div>

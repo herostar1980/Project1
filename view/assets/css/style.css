@@ -3415,7 +3415,7 @@ header .search button:hover {
 }
 .single-flash-sale .flash-sale-content .price {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 .single-flash-sale .flash-sale-content .price span.new-price {
   color: #ff2020;
@@ -3426,7 +3426,9 @@ header .search button:hover {
 .single-flash-sale .flash-sale-content .price span.old-price {
   color: gray;
   text-decoration: line-through;
-  font-size: 18px;
+  font-size: 16px;
+  padding-left: 5px;
+  line-height: 31px;
   font-weight: 500;
   display: block;
 }
@@ -3596,7 +3598,7 @@ header .search button:hover {
 }
 .popular-wrapper .single-popular-items .popular-content .price {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 .popular-wrapper .single-popular-items .popular-content .price span.new-price {
   color: #ff9438;
@@ -3607,7 +3609,9 @@ header .search button:hover {
 .popular-wrapper .single-popular-items .popular-content .price span.old-price {
   color: gray;
   text-decoration: line-through;
-  font-size: 18px;
+  font-size: 16px;
+  padding-left: 5px;
+  line-height: 31px;
   font-weight: 500;
   display: block;
 }
@@ -7855,6 +7859,7 @@ input:focus {
   overflow: hidden;
   border-bottom: 3px solid #ff8e96;
   margin-bottom: 19px;
+  min-height: 190px;
   position: relative;
 }
 .product-wrapper .single-product-items .product-img img {
@@ -7925,7 +7930,7 @@ input:focus {
 }
 .product-wrapper .single-product-items .product-content .price {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 .product-wrapper .single-product-items .product-content .price span.new-price {
@@ -7937,7 +7942,9 @@ input:focus {
 .product-wrapper .single-product-items .product-content .price span.old-price {
   color: gray;
   text-decoration: line-through;
-  font-size: 15px;
+  font-size: 14px;
+  padding-left: 5px;
+  line-height: 31px;
   font-weight: 500;
   display: block;
 }
@@ -7992,11 +7999,6 @@ input:focus {
 @media (max-width: 575px) {
   .product-wrapper .nav-tabs ul.nav-parents {
     display: block;
-    width: 100%;
-  }
-}
-@media (max-width: 575px) {
-  .product-wrapper .nav-tabs ul li:last-child {
     width: 100%;
   }
 }

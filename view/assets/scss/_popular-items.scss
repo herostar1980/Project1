@@ -75,7 +75,7 @@
             .popular-content{
                 .price {
                     display: flex;
-                    justify-content: space-evenly;
+                    justify-content: center;
                     span{
                         &.new-price{
                             color:#ff9438;
@@ -86,7 +86,9 @@
                         &.old-price{
                             color:gray;
                             text-decoration: line-through;
-                            font-size:18px;
+                            font-size: 16px;
+                            padding-left: 5px;
+                            line-height: 31px;
                             font-weight:500;
                             display:block;
                         }
