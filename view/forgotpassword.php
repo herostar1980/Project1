@@ -32,26 +32,17 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="login_part_form">
                             <div class="login_part_form_iner">
-                                <h3>Welcome Back ! <br>
-                                    Please Sign in now</h3>
-                                <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                                <h3>Please enter your password to retrieve your password</h3>
+                                <form class="row contact_form" action="#" method="POST" novalidate="novalidate">
                                     <div class="col-md-12 form-group p_star">
-                                        <input type="text" class="form-control" id="name" name="name" value=""
-                                            placeholder="Username">
-                                    </div>
-                                    <div class="col-md-12 form-group p_star">
-                                        <input type="password" class="form-control" id="password" name="password" value=""
-                                            placeholder="Password">
+                                        <input type="text" class="form-control" id="email" name="email" value=""
+                                            placeholder="Enter your email">
                                     </div>
                                     <div class="col-md-12 form-group">
-                                        <div class="creat_account d-flex align-items-center">
-                                            <input type="checkbox" id="f-option" name="selector">
-                                            <label for="f-option">Remember me</label>
-                                        </div>
-                                        <button type="submit" value="submit" class="submit_btn">
-                                            Log in
+                                        <button type="submit" value="submit" name="fpw_btn" class="submit_btn">
+                                            Submit
                                         </button>
-                                        <a class="lost_pass" href="?act=forgot_password">Forget password?</a>
+                                        <a class="lost_pass" href="?act=login">I have an account?</a>
                                     </div>
                                 </form>
                             </div>

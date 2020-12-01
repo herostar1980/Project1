@@ -65,13 +65,22 @@
                     }
                    
                     break;
+            case 'forgot_password':
+                        include "../model/Fotgot_password.php";
+                        include "../view/forgotpassword.php";
+                        if(isset($_POST['fpw_btn'])) {
+                                $email = $_POST['email'];
+                                $message = forgot_password($conn, $email);
+                                echo "<script type='text/javascript'>alert('$message');</script>";
+                        }
+                break;
+
             case 'cart':
                         include_once "../view/cart.php";
                         break;
 
             default:
-                // include "../model/Products.php";
-                // $produ = getAllProduct($conn);
+                include "../model/Products.php";
                 include_once "../view/home.php";
                 break;
     } 
