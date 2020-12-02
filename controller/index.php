@@ -4,10 +4,11 @@
     require_once("../model/shop.php");
 //    connect();
         $conn = connect();
-    include_once "../view/header.php";
+    include "../view/header.php";
     if(isset($_GET["act"])){
         $act= $_GET["act"];
-        switch($act){            
+        switch($act){
+                            
             case 'about':
                     include "../view/about.php";
                     break;
@@ -17,7 +18,50 @@
             case 'blog':
                     include "../view/blog.php";
                     break;
-            case 'cart':
+            case 'shopping-cart':
+                    include "../view/cart.php";
+                    break;                    
+            case 'cart':                                       
+                    include "../model/cart.php";                
+                    
+                    if(isset($_GET['id'])){
+                        $id=$_GET['id'];
+                        }
+                        $action = (isset($_GET['action'])) ? $_GET['action'] : 'add';
+                        $quantity =(isset($_GET['quantity'])) ? $_GET['quantity'] : 1;
+                        if($quantity <= 0){
+                        $quantity=1;
+                        }                                                                                                
+                    $item = getProductDetailId($conn, $id);
+                //     session_destroy();
+                //         die(); 
+                    foreach($item as $i){
+                            $i=
+                            [
+                                    'id'=>$i['idProductDetail'],
+                                    'color'=>$i['color'],
+                                    'size'=>$i['size'],
+                                    'price'=>($i['price']>0) ? $i['price'] : $i['oldPrice'],
+                                    'img'=>$i['imgUrl'],
+                                    'quantity'=> $quantity
+
+
+                            ];          
+                    }
+                    if($action == 'add'){
+                        if(isset($_SESSION['cart'] [$id])){
+                            $_SESSION['cart'] [$id]['quantity']+=$quantity;
+                        
+                        }else{
+                            $_SESSION['cart'] [$id] = $i;
+                        }
+                    }
+                    if($action == 'update'){
+                        $_SESSION['cart'][$id]['quantity'] = $quantity;
+                    }
+                    if($action == 'delete'){
+                        unset($_SESSION['cart'][$id]);
+                    }                              
                     include "../view/cart.php";
                     break;
             case 'checkout':
@@ -38,7 +82,8 @@
                     }else {
                         $pro=0;
                     }
-                //     print_r($data);
+                    echo"<pre>";
+                    print_r($data);
                     include "../view/product_details.php";
                     break;
             case 'shop':
@@ -54,16 +99,30 @@
                     break;
             case 'login':
                     //login
-                   
-                        include "../view/login.php";
-                    
+                        require "../model/user.php";
+                        $MESSAGE="";
+                        extract($_REQUEST);
+                        if(array_key_exists("login", $_REQUEST)){
+                        $user = khach_hang_select_by_id($username);
+                        if($user){
+                                if($user['password'] == $password){
+                                $MESSAGE = "Đăng nhập thành công!"; 
+                                $_SESSION["username"] = $user;                                                 
+                                }else{
+                                $MESSAGE = "Sai mật khẩu!";
+                                }                              
+                        }else{
+                                $MESSAGE = "Sai ten đăng nhập!";
+                        }}                        
+                    if(isset($_SESSION['username'])){
+                        include '../view/login/info.php';
+                    }else{         
+                        include "../view/login/login-form.php";
+                    }                        
                     //logout
-                    if(isset($_GET['logout'])&&($_GET['logout'])==1){
-                        unset($_SESSION['sid']);
-                        unset($_SESSION['suser']);
-                        header("location: index.php");
-                    }
-                   
+                    if(isset($_GET['logout'])){
+                        unset($_SESSION['username']);                        
+                        } 
                     break;
             case 'forgot_password':
                         include "../model/Fotgot_password.php";

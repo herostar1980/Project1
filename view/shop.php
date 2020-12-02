@@ -145,14 +145,16 @@
                     <div class="row" id="productWrapper">
                         <!--single-product-->
                         <?php
+                        
                             foreach($products as $product)
-                                { ?>
+                                {
+                                     ?>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4">
                                         <div class="single-product-items mb-50 text-center">
                                             <div class="product-img">
                                                 <img src="<?php echo $product['imgUrl'] ?>" alt="product">
                                                 <div class="img-cap">
-                                                    <span>Add to cart</span>
+                                                    <a href="?act=cart&id=<?=$product['idProductDetail'];?>">Add to cart</a>
                                                 </div>
                                                 <div class="favorit-items">
                                                     <span class="flaticon-heart"></span>

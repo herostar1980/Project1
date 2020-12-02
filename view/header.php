@@ -89,8 +89,18 @@
                                         </script>
                                     </div>
                                 </li>
-                                <li> <a href="?act=login"><span class="flaticon-user"></span></a></li>
-                                <li><a href="?act=cart"><span class="flaticon-shopping-cart"></span></a> </li>
+                                <li>
+                                <?php                                    
+                                    if(!isset($_SESSION['username'])){
+                                        ?>                                        
+                                <a href="?act=login"><span class="flaticon-user"></span></a>                                        
+                                        <?php
+                                    }                                    
+                                    else{
+                                        echo"<a href='?act=login'><span class='flaticon-user'></span></a>" .$_SESSION['username']['fullName'];                                        
+                                    }                                   
+                                    ?></li>
+                                <li><a href="?act=shopping-cart"><span class="flaticon-shopping-cart"></span></a> </li>
                             </ul>
                         </div>
                     </div>
