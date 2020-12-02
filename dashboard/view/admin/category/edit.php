@@ -42,11 +42,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label> Group Product :</label> 
-                                    <select name="idGroupProduct" class="form-control" value="">
-                                        <?PHP foreach ($data_groupproduct as $value) {  ?>
-                                            <option value="<?= $value->idGroupProduct ?>"><?= $value->nameGroupProduct?></option>
-                                        <?PHP } ?>
-                                    </select>
+                                    <input type="text" name="idGroupProduct" class="form-control" 
+                                        value="<?=$data->idGroupProduct?>">
                                 </div>
                             
                                 <input name="update" type="submit" value="Cập nhật" class="btn-submit">

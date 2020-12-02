@@ -21,12 +21,6 @@
                 </div>
             </li>
             <li class="left__menuItem">
-                <div class="left__title"><img src="../public/assets/icon-tag.svg" alt="">Product Detail<img class="left__iconDown" src="../public/assets/arrow-down.svg" alt=""></div>
-                <div class="left__text">
-                    <?php require 'productDetail/category-con.php' ?>
-                </div>
-            </li>
-            <li class="left__menuItem">
                 <div class="left__title"><img src="../public/assets/icon-edit.svg" alt="">Category<img class="left__iconDown" src="../public/assets/arrow-down.svg" alt=""></div>
                 <div class="left__text">
                     <?php require 'category/category-con.php' ?>
@@ -44,20 +38,26 @@
                     <?php require 'brand/category-con.php' ?>
                 </div>
             </li>
+            <li class="left__menuItem">
+                <div class="left__title"><img src="../public/assets/icon-user.svg" alt="">Role<img class="left__iconDown" src="../public/assets/arrow-down.svg" alt=""></div>
+                <div class="left__text">
+                    <?php require 'role/category-con.php' ?>
+                </div>
+            </li>
 
             <li class="left__menuItem">
                 <a href="?act=user&show" class="left__title"><img src="../public/assets/icon-users.svg" alt="">User</a>
             </li>
             <li class="left__menuItem">
-                <a href="view_orders.html" class="left__title"><img src="../public/assets/icon-book.svg" alt="">Bill</a>
+                <a href="?act=bill&show" class="left__title"><img src="../public/assets/icon-book.svg" alt="">Bill</a>
+            </li>
+            <li class="left__menuItem">
+                <a href="?act=comment&show" class="left__title"><img src="../public/assets/icon-book.svg" alt="">Comment</a>
+            </li>
+            <li class="left__menuItem">
+                <a href="?act=rating&show" class="left__title"><img src="../public/assets/icon-book.svg" alt="">Rating</a>
             </li>
 
-            <li class="left__menuItem">
-                <div class="left__title"><img src="../public/assets/icon-user.svg" alt="">Role<img class="left__iconDown" src="../public/assets/arrow-down.svg" alt=""></div>
-                <div class="left__text">
-                    <?php require 'nhanvien/category-con.php' ?>
-                </div>
-            </li>
             <li class="left__menuItem">
                 <a href="" class="left__title"><img src="../public/assets/icon-logout.svg" alt="">Đăng Xuất</a>
             </li>

@@ -31,14 +31,14 @@
 
                         <h2>Edit Product</h2>
                         <br><br><br>
-                        <form action="" method="post">
+                        <form action="" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label>ID Product :</label>
                                 <?php echo $data->idProduct ?>
                             </div>
                             <div class="form-group">
                                 <label> Name :</label>
-                                <input type="text" name="nameProduct" class="form-control" value="<?= $data->nameProduct ?>">
+                                <input type="text" name="nameProduct" class="form-control" required value="<?= $data->nameProduct ?>">
                             </div>
                             <div class="form-group">
                                 <label> Category :</label>
@@ -52,15 +52,21 @@
                                 <label> Brand :</label>
                                 <select name="idBrand" class="form-control" value="">
                                     <?PHP foreach ($data_brand as $value) {  ?>
-                                        <option value="<?= $value->idThuongHieu ?>"><?= $value->nameBrand?></option>
+                                        <option value="<?= $value->idThuongHieu ?>"><?= $value->nameBrand ?></option>
                                     <?PHP } ?>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label> ImageUrl :</label> <input type="text" name="imgUrl" class="form-control" value="<?= $data->imgUrl ?>">
+                                <label> ImageUrl :</label>
+                                <input type="file" name="imgUrl" required value="">
                             </div>
                             <div class="form-group">
-                                <label> is Flash Sale :</label> <input type="text" name="flashSale" class="form-control" value="<?= $data->flashSale ?>">
+                                <label>is Flash Sale : </label>
+                                <select name="flashSale" class="form-control" value="">
+                                    <option value="0">NO</option>
+                                    <option value="1">YES</option>
+
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label> Discount (%) :</label> <input type="text" name="note" class="form-control" value="<?= $data->note ?>">

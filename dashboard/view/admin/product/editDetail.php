@@ -13,8 +13,6 @@
 <body>
 
     <div class="container">
-        <h2>Sản phẩm: <?= $getName ?> </h2>
-        <!-- Trigger the modal with a button -->
         <button type="button" class="btn-submit" data-toggle="modal" data-target="#myModal">Mở bảng chỉnh sửa</button>
 
         <!-- Modal -->
@@ -29,39 +27,42 @@
                     </div>
                     <div class="modal-body">
 
-                        <h2>Edit Product Detail</h2>
+                        <h2>Edit Product</h2>
                         <br><br><br>
-                        <form action="" method="post">
+                        <form action="" method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label>ID Product Detail :</label>
-                                <?php echo $data->idProductDetail ?>
+                                <label>ID Product :</label>
+                                <?php echo $data->idProduct ?>
                             </div>
                             <div class="form-group">
-                                <label> Name Product :</label>
-                                <select name="idProduct" class="form-control" value="">
-                                    <?PHP foreach ($data_prd as $value) {  ?>
-                                        <option value="<?= $value->idProduct ?>"><?= $value->nameProduct ?></option>
-                                    <?PHP } ?>
+                                <label>Color : </label>
+                                <input type="text" name="color" class="form-control" required value="<?=$data->color?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Size : </label>
+                                <select name="size" class="form-control" value="<?=$data->size?>">
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XXL">XXL</option>
+                                    <option value="Free size">Free size</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label> Color :</label>
-                                <input type="text" name="color" required class="form-control" value="<?PHP echo $data->color ?>">
+                                <label>Price : </label>
+                                <input type="text" name="price" class="form-control" required value="<?=$data->price?>">
                             </div>
                             <div class="form-group">
-                                <label> Size :</label> <input type="text" name="size" class="form-control" required value="<?PHP echo $data->size ?>">
+                                <label>Old Price : </label>
+                                <input type="text" name="oldPrice" class="form-control" required value="<?=$data->oldPrice?>">
                             </div>
                             <div class="form-group">
-                                <label> Price :</label> <input type="text" name="price" class="form-control" required value="<?PHP echo $data->price ?>">
+                                <label> ImageUrl :</label>
+                                <input type="file" name="imgUrl" required value="">
                             </div>
                             <div class="form-group">
-                                <label> Old Price :</label> <input type="text" name="oldPrice" class="form-control" value="<?PHP echo $data->oldPrice ?>">
-                            </div>
-                            <div class="form-group">
-                                <label> Image URL :</label> <input type="text" name="imgUrl" class="form-control" value="<?PHP echo $data->imgUrl ?>">
-                            </div>
-                            <div class="form-group">
-                                <label> quantity :</label> <input type="text" name="quantity" class="form-control" value="<?PHP echo $data->quantity ?>">
+                                <label>Quantity </label>
+                                <input type="text" name="quantity" class="form-control" required value="<?=$data->quantity?>">
                             </div>
                             <input name="update" type="submit" value="Cập nhật" class="btn-submit">
                         </form>

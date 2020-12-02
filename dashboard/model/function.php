@@ -14,23 +14,23 @@ class Database
     }
     public function connect()
     {
-        if(!$this->conn){
-            $this->conn = mysqli_connect($this->host,$this->username,$this->password,$this->databaseName);
+        if (!$this->conn) {
+            $this->conn = mysqli_connect($this->host, $this->username, $this->password, $this->databaseName);
             if (mysqli_connect_errno()) {
-                echo 'Failed: '. mysqli_connect_error();
+                echo 'Failed: ' . mysqli_connect_error();
                 die();
             }
-            mysqli_set_charset($this->conn,$this->charset);
+            mysqli_set_charset($this->conn, $this->charset);
         }
     }
     public function disConnect()
     {
-        if($this->conn)
+        if ($this->conn)
             mysqli_close($this->conn);
     }
     public function error()
     {
-        if($this->conn)
+        if ($this->conn)
             return mysqli_error($this->conn);
         else
             return false;
@@ -38,53 +38,49 @@ class Database
     public function insert($table = '', $data = [])
     {
         $keys = '';
-        $values= '';
+        $values = '';
         foreach ($data as $key => $value) {
             $keys .= ',' . $key;
-            $values .= ',"' . mysqli_real_escape_string($this->conn,$value).'"';
+            $values .= ',"' . mysqli_real_escape_string($this->conn, $value) . '"';
         }
-        $sql = 'INSERT INTO ' .$table . '(' . trim($keys,',') . ') VALUES (' . trim($values,',') . ')';
-        return mysqli_query($this->conn,$sql);
+        $sql = 'INSERT INTO ' . $table . '(' . trim($keys, ',') . ') VALUES (' . trim($values, ',') . ')';
+        return mysqli_query($this->conn, $sql);
     }
-    public function update($table = '',$data = [], $id =[],$key='')
+    public function update($table = '', $data = [], $id = [], $key = '')
     {
         $content = '';
-        if(is_integer($id))
-            $where = $key.'='.$id;
-        else if(is_array($id) && count($id)==1){
+        if (is_integer($id))
+            $where = $key . '=' . $id;
+        else if (is_array($id) && count($id) == 1) {
             $listKey = array_keys($id);
-            $where = $listKey[0].'='.$id[$listKey[0]];
-        }
-        else
+            $where = $listKey[0] . '=' . $id[$listKey[0]];
+        } else
             die('Không thể có nhiều hơn 1 khóa chính và id truyền vào phải là số');
         foreach ($data as $key => $value) {
-            $content .= ','. $key . '="' . mysqli_real_escape_string($this->conn,$value).'"';
+            $content .= ',' . $key . '="' . mysqli_real_escape_string($this->conn, $value) . '"';
         }
-        $sql = 'UPDATE ' .$table .' SET '.trim($content,',') . ' WHERE ' . $where ;
-        return mysqli_query($this->conn,$sql);
+        $sql = 'UPDATE ' . $table . ' SET ' . trim($content, ',') . ' WHERE ' . $where;
+        return mysqli_query($this->conn, $sql);
     }
-    public function delete($table='',$id,$key='')
+    public function delete($table = '', $id, $key = '')
     {
         $content = '';
-        if(is_integer($id))
-            $where = $key. '=' .$id;
-        else if(is_array($id) && count($id)==1){
+        if (is_integer($id))
+            $where = $key . '=' . $id;
+        else if (is_array($id) && count($id) == 1) {
             $listKey = array_keys($id);
-            $where = $listKey[0].'='.$id[$listKey[0]];
-        }
-        else
+            $where = $listKey[0] . '=' . $id[$listKey[0]];
+        } else
             die('Không thể có nhiều hơn 1 khóa chính và id truyền vào phải là số');
-        $sql = 'DELETE FROM ' . $table . ' WHERE '. $where;
-        return mysqli_query($this->conn,$sql);
-        
-    
+        $sql = 'DELETE FROM ' . $table . ' WHERE ' . $where;
+        return mysqli_query($this->conn, $sql);
     }
     public function getObject($table = '')
     {
-        $sql = 'SELECT * FROM '. $table;
+        $sql = 'SELECT * FROM ' . $table;
         $data = null;
-        if($result = mysqli_query($this->conn,$sql)){
-            while($row = mysqli_fetch_object($result)){
+        if ($result = mysqli_query($this->conn, $sql)) {
+            while ($row = mysqli_fetch_object($result)) {
                 $data[] = $row;
             }
             mysqli_free_result($result);
@@ -92,80 +88,99 @@ class Database
         }
         return false;
     }
-    public function getArray($table = '')
+    public function getObjectSelect($table = '', $id = [], $key = '')
     {
-        $sql = 'SELECT * FROM '. $table;
         $data = null;
-        if($result = mysqli_query($this->conn,$sql)){
-            while($row = mysqli_fetch_array($result)){
+        if (is_integer($id))
+            $where = $key . '=' . $id;
+        else if (is_array($id) && count($id) == 1) {
+            $listKey = array_keys($id);
+            $where = $listKey[0] . '=' . $id[$listKey[0]];
+        } else
+            die('Không thể có nhiều hơn 1 khóa chính và id truyền vào phải là số');
+        $sql = 'SELECT * FROM ' . $table . ' WHERE ' . $where;
+
+        if ($result = mysqli_query($this->conn, $sql)) {
+            while ($row = mysqli_fetch_object($result)) {
                 $data[] = $row;
             }
             mysqli_free_result($result);
             return $data;
-        }
-        else
+        } else
             return false;
     }
-    public function getRowObject($table = '', $id = [],$key='')
+    public function getArray($table = '')
     {
-        if(is_integer($id))
-            $where = $key.'='.$id;
-        else if(is_array($id) && count($id)==1){
+        $sql = 'SELECT * FROM ' . $table;
+        $data = null;
+        if ($result = mysqli_query($this->conn, $sql)) {
+            while ($row = mysqli_fetch_array($result)) {
+                $data[] = $row;
+            }
+            mysqli_free_result($result);
+            return $data;
+        } else
+            return false;
+    }
+    public function getRowObject($table = '', $id = [], $key = '')
+    {
+        if (is_integer($id))
+            $where = $key . '=' . $id;
+        else if (is_array($id) && count($id) == 1) {
             $listKey = array_keys($id);
-            $where = $listKey[0].'='.$id[$listKey[0]];
-        }
-        else
+            $where = $listKey[0] . '=' . $id[$listKey[0]];
+        } else
             die('Không thể có nhiều hơn 1 khóa chính và id truyền vào phải là số');
-        $sql = 'SELECT * FROM '. $table . ' WHERE '. $where;
-        
-        if($result = mysqli_query($this->conn,$sql)){
+        $sql = 'SELECT * FROM ' . $table . ' WHERE ' . $where;
+
+        if ($result = mysqli_query($this->conn, $sql)) {
             $data = mysqli_fetch_object($result);
             mysqli_free_result($result);
             return $data;
-        }
-        else
+        } else
             return false;
     }
     public function getRowArray($table = '', $id = [])
     {
-        if(is_integer($id))
-            $where = 'id = '.$id;
-        else if(is_array($id) && count($id)==1){
+        if (is_integer($id))
+            $where = 'id = ' . $id;
+        else if (is_array($id) && count($id) == 1) {
             $listKey = array_keys($id);
-            $where = $listKey[0].'='.$id[$listKey[0]];
-        }
-        else
+            $where = $listKey[0] . '=' . $id[$listKey[0]];
+        } else
             die('Không thể có nhiều hơn 1 khóa chính và id truyền vào phải là số');
-        $sql = 'SELECT * FROM '. $table . ' WHERE '. $where;
-        
-        if($result = mysqli_query($this->conn,$sql)){
+        $sql = 'SELECT * FROM ' . $table . ' WHERE ' . $where;
+
+        if ($result = mysqli_query($this->conn, $sql)) {
             $data = mysqli_fetch_array($result);
             mysqli_free_result($result);
             return $data;
-        }
-        else
+        } else
             return false;
     }
-    public function query($sql ='', $return = true)
+    public function query($sql = '', $return = true)
     {
-        if($result = mysqli_query($this->conn,$sql))
-        {
-            if($return === true){
+        if ($result = mysqli_query($this->conn, $sql)) {
+            if ($return === true) {
                 while ($row = mysqli_fetch_array($result)) {
                     $data[] = $row;
                 }
                 mysqli_free_result($result);
                 return $data;
-            }
-            else
+            } else
                 return true;
-        }
-        else
+        } else
             return false;
+    }
+    public function save_file($fieldname='', $target_dir=''){
+        $file_uploaded = $_FILES[$fieldname];
+        $file_name = basename($file_uploaded["name"]);
+        $target_path = $target_dir . $file_name;
+        move_uploaded_file($file_uploaded["tmp_name"], $target_path);
+        return $file_name;
     }
     public function __destruct()
     {
         $this->disConnect();
     }
-
 }

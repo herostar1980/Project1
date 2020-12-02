@@ -42,18 +42,17 @@
             if (!empty($data)) {
             ?>
                 <table>
-                    <thead>
+                <thead>
                         <tr>
-                            <th>ID product Detail</th>
-                            <th>ID Product</th>
-                            <th>Color</th>
-                            <th>Size</th>
-                            <th>Price</th>
-                            <th>Old Price</th>
-                            <th>Image</th>
-                            <th>Quantity</th>
-                            <th>Delete</th>
-                            <th>Edit</th>
+                            <th>ID Rating</th>
+                            <th>Points</th>
+                            <th>idProduct</th>
+                            <th>idUser</th>
+                            <th>Xoá</th>
+
+
+                            
+
 
                         </tr>
                     </thead>
@@ -63,19 +62,13 @@
 
                         foreach ($data as $value) {         ?>
                             <tr>
-                                <td><?php echo $value->idProductDetail ?></td>
-                                <td><?php echo $value->idProduct ?></td>
-                                <td><?php echo $value->color ?></td>
-                                <td><?php echo $value->size ?></td>
-                                <td><?php echo $value->price?></td>
-                                <td><?php echo $value->oldPrice ?></td>
-                                <td><?php echo $value->imgUrl?></td>
-                                <td><?php echo $value->quantity?></td>
+                                <td><?php echo $value->idRating?></td>
+                                <td><?php echo $value->points?></td>
+                                <td><?php echo $value->idProduct?></td>
+                                <td><?php echo $value->idUser?></td>      
+
                                 <td class="text-center">                                  
-                                <a href="?act=productdetail&delete=<?PHP echo $value->idProductDetail ?>" class="btn-edit">Del</a>                         
-                                </td>
-                                <td>
-                                <a  href="?act=productdetail&edit=<?PHP echo $value->idProductDetail ?>" class="btn-edit">Edit</a>
+                                <a href="?act=rating&delete=<?PHP echo $value->idRating ?>" class="btn-edit">Del</a>                      
                                 </td>
                             </tr>
                         <?php }

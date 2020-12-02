@@ -3,11 +3,11 @@ session_start();
 //cái này là định dạng các url cho web nha các bro. 
 $ROOT_URL = "..";
 $PUBLIC_URL = "$ROOT_URL/public";
-$ADMIN_URL = "$ROOT_URL/admin";
+$ADMIN_URL = "$ROOT_URL/dashboard";
 $SITE_URL = "$ROOT_URL/website";
 
 
-$IMAGE_DIR = $_SERVER["DOCUMENT_ROOT"] . "$ROOT_URL/public/images";
+$IMAGE_DIR =  "../../images/";
 
 /*
  * 2 biến toàn cục cần thiết để chia sẻ giữa controller và view

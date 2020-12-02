@@ -15,18 +15,14 @@
     <div class="container">
         <h2> Set chi tiết cho sản phẩm </h2>
 <br><br><br>
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label>Name Product : </label>
-                <select  name="idProduct" class="form-control" value="">
-                    <?PHP foreach ($data_prd as $value) {  ?>
-                        <option value="<?= $value->idProduct ?>"><?= $value->nameProduct?></option>  
-                    <?PHP } ?>
-                    </select>
+                  <span><?PHP echo $data_prd->nameProduct ?></span>  
             </div>
             <div class="form-group">
                 <label>Color : </label>
-                <input type="text" name="color" class="form-control" value="">
+                <input type="text" name="color" class="form-control" required value="">
             </div>
             <div class="form-group">
                 <label>Size : </label> 
@@ -40,19 +36,19 @@
             </div>
             <div class="form-group">
                 <label>Price : </label> 
-                <input type="text" name="price" class="form-control" value="">
+                <input type="text" name="price" class="form-control" required value="">
             </div>
             <div class="form-group">
                 <label>Old Price : </label> 
-                <input type="text" name="oldPrice" class="form-control" value="">
+                <input type="text" name="oldPrice" class="form-control" required value="">
             </div>
             <div class="form-group">
-                <label>Image Url </label> 
-                <input type="text" name="imgUrl" class="form-control" value="">
+                <label>Image Url : </label>
+                <input type="file" name="imgUrl" required value="">
             </div>
             <div class="form-group">
                 <label>Quantity </label> 
-                <input type="text" name="quantity" class="form-control" value="">
+                <input type="text" name="quantity" class="form-control" required value="">
             </div>
 
             <input name="update" type="submit" value="Thêm" class="btn-submit">
