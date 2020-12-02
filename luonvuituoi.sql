@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 02, 2020 at 07:30 AM
--- Server version: 10.4.16-MariaDB
--- PHP Version: 7.4.12
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th12 02, 2020 lúc 03:01 PM
+-- Phiên bản máy phục vụ: 10.4.13-MariaDB
+-- Phiên bản PHP: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `luonvuituoi`
+-- Cơ sở dữ liệu: `luonvuituoi`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bill`
+-- Cấu trúc bảng cho bảng `bill`
 --
 
 CREATE TABLE `bill` (
@@ -35,7 +35,7 @@ CREATE TABLE `bill` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `bill`
+-- Đang đổ dữ liệu cho bảng `bill`
 --
 
 INSERT INTO `bill` (`idBill`, `idUser`, `total`, `date`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `bill` (`idBill`, `idUser`, `total`, `date`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `billdetail`
+-- Cấu trúc bảng cho bảng `billdetail`
 --
 
 CREATE TABLE `billdetail` (
@@ -64,7 +64,7 @@ CREATE TABLE `billdetail` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `brand`
+-- Cấu trúc bảng cho bảng `brand`
 --
 
 CREATE TABLE `brand` (
@@ -73,7 +73,7 @@ CREATE TABLE `brand` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `brand`
+-- Đang đổ dữ liệu cho bảng `brand`
 --
 
 INSERT INTO `brand` (`idThuongHieu`, `nameBrand`) VALUES
@@ -87,7 +87,7 @@ INSERT INTO `brand` (`idThuongHieu`, `nameBrand`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Cấu trúc bảng cho bảng `category`
 --
 
 CREATE TABLE `category` (
@@ -97,7 +97,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `category`
+-- Đang đổ dữ liệu cho bảng `category`
 --
 
 INSERT INTO `category` (`idCategory`, `nameCategory`, `idGroupProduct`) VALUES
@@ -121,7 +121,7 @@ INSERT INTO `category` (`idCategory`, `nameCategory`, `idGroupProduct`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Cấu trúc bảng cho bảng `comment`
 --
 
 CREATE TABLE `comment` (
@@ -132,19 +132,10 @@ CREATE TABLE `comment` (
   `idProduct` int(11) NOT NULL COMMENT 'id Product'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `comment`
---
-
-INSERT INTO `comment` (`idComment`, `idUser`, `content`, `status`, `idProduct`) VALUES
-(1, 1, 'asdasd', 1, 24),
-(2, 1, '23123123123', 1, 24),
-(3, 1, '1231231edsafsadfasdfasdf', 1, 24);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `groupproduct`
+-- Cấu trúc bảng cho bảng `groupproduct`
 --
 
 CREATE TABLE `groupproduct` (
@@ -153,7 +144,7 @@ CREATE TABLE `groupproduct` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `groupproduct`
+-- Đang đổ dữ liệu cho bảng `groupproduct`
 --
 
 INSERT INTO `groupproduct` (`idGroupProduct`, `nameGroupProduct`) VALUES
@@ -166,7 +157,7 @@ INSERT INTO `groupproduct` (`idGroupProduct`, `nameGroupProduct`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productdetail`
+-- Cấu trúc bảng cho bảng `productdetail`
 --
 
 CREATE TABLE `productdetail` (
@@ -174,25 +165,28 @@ CREATE TABLE `productdetail` (
   `idProduct` int(11) NOT NULL COMMENT 'Mã sản phẩm',
   `color` varchar(50) DEFAULT NULL COMMENT 'Màu sản phẩm',
   `size` varchar(10) DEFAULT NULL COMMENT 'Size',
-  `price` int(30) NOT NULL COMMENT 'Giá',
-  `oldPrice` int(50) NOT NULL COMMENT 'Old price',
+  `price` varchar(50) NOT NULL COMMENT 'Giá',
+  `oldPrice` varchar(50) NOT NULL COMMENT 'Old price',
   `imgUrl` text DEFAULT NULL COMMENT 'Ảnh sản phẩm',
   `quantity` int(50) NOT NULL COMMENT 'Số lượng chi tiết sản phẩm'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `productdetail`
+-- Đang đổ dữ liệu cho bảng `productdetail`
 --
 
 INSERT INTO `productdetail` (`idProductDetail`, `idProduct`, `color`, `size`, `price`, `oldPrice`, `imgUrl`, `quantity`) VALUES
-(76, 26, 'Yellow', 'S', 200000, 200000, '72846167_2529855303915258_216114057025945600_n.png', 3),
-(77, 32, 'Yellow', 'XXL', 200000, 200000, 'download (1).jfif', 2),
-(78, 18, 'Yellow', 'Free size', 200000, 200000, '16830900_761989063956412_1706517993511544718_n.jpg', 13);
+(79, 33, 'SkyBlue', 'M', '1,150.00', '1,450.00', 'louis-vuitton-cloud-print-t-shirt-ready-to-wear--HJY79WNPG617_PM2_Front view.webp', 15),
+(80, 34, 'Black', 'Free size', '9,500.00', '10,500.00', 'louis-vuitton-sculptural-jacket-ready-to-wear--HJJ75WTCX900_PM2_Front view.webp', 12),
+(81, 35, 'SkyBlue', '36', '2,330.00', '2,900.00', 'louis-vuitton-clouds-90s-slim-pants-ready-to-wear--HJP70WYFE600_PM2_Front view.webp', 9),
+(83, 36, 'GIANT DAMIER WAVES MONOGRAM DENIM JACKET', '46', '3,900.00', '4,400.00', 'louis-vuitton-giant-damier-waves-monogram-denim-jacket-ready-to-wear--HJA10WUZC650_PM2_Front view.webp', 5),
+(84, 37, 'Blue', '', '4,500.00', '4,700.00', 'louis-vuitton-tambour-slim-monogram-watches-and-jewellery--QBB162_PM2_Front view.webp', 4),
+(85, 38, 'White', '', '680', '700', '429446_02JP0_9064_002_100_0000_Light-Mens-Ace-embroidered-sneaker.png', 16);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Cấu trúc bảng cho bảng `products`
 --
 
 CREATE TABLE `products` (
@@ -200,7 +194,7 @@ CREATE TABLE `products` (
   `nameProduct` varchar(50) DEFAULT NULL COMMENT 'Tên sản phẩm',
   `idCategory` int(11) NOT NULL COMMENT 'Loại sản phẩm',
   `idBrand` int(11) NOT NULL COMMENT 'Thương hiệu',
-  `imgUrl` varchar(50) NOT NULL COMMENT 'Ảnh đại diện',
+  `imgUrl` varchar(200) NOT NULL COMMENT 'Ảnh đại diện',
   `flashSale` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'flash sale',
   `note` int(10) NOT NULL COMMENT '% discount',
   `date` datetime NOT NULL DEFAULT current_timestamp() COMMENT 'Ngày ra mắt',
@@ -208,24 +202,21 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `products`
+-- Đang đổ dữ liệu cho bảng `products`
 --
 
 INSERT INTO `products` (`idProduct`, `nameProduct`, `idCategory`, `idBrand`, `imgUrl`, `flashSale`, `note`, `date`, `description`) VALUES
-(18, '', 1, 1, '72846167_2529855303915258_216114057025945600_n.png', 0, 0, '2020-12-02 10:05:17', ''),
-(24, 'Đập đá', 1, 1, '72846167_2529855303915258_216114057025945600_n.png', 0, 0, '2020-12-02 10:13:48', ''),
-(25, '', 1, 1, '72846167_2529855303915258_216114057025945600_n.png', 0, 0, '2020-12-02 10:14:43', ''),
-(26, '', 1, 1, '72846167_2529855303915258_216114057025945600_n.png', 0, 0, '2020-12-02 10:15:51', ''),
-(27, '', 1, 1, '72846167_2529855303915258_216114057025945600_n.png', 0, 0, '2020-12-02 10:16:38', ''),
-(28, '', 1, 1, '72846167_2529855303915258_216114057025945600_n.png', 0, 0, '2020-12-02 10:17:09', ''),
-(29, '', 1, 1, '72846167_2529855303915258_216114057025945600_n.png', 0, 0, '2020-12-02 10:18:17', ''),
-(30, '', 1, 1, '72846167_2529855303915258_216114057025945600_n.png', 0, 0, '2020-12-02 10:18:48', ''),
-(32, 'Đinh Ân Đại', 1, 1, '16830900_761989063956412_1706517993511544718_n.jpg', 0, 123, '2020-12-02 10:30:53', '');
+(33, 'CLOUD PRINT T-SHIRT', 1, 1, 'louis-vuitton-cloud-print-t-shirt-ready-to-wear--HJY79WNPG617_PM2_Front view.webp', 1, 20, '2020-12-02 13:49:13', 'With its graphic Cloud motif, this T-shirt channels the season\'s Heaven On Earth theme. The design is digitally printed on lightweight cotton jersey, creating a vintage handcrafted feel. Tailored in a regular fit, the piece features a discreet LV Cloud signature.'),
+(34, 'SCULPTURAL JACKET', 1, 1, 'louis-vuitton-sculptural-jacket-ready-to-wear--HJJ75WTCX900_PM2_Front view.webp', 1, 10, '2020-12-02 14:17:44', 'This exceptional piece channels the collection\'s reengineering of corporate dress codes, with a deconstructed version of the traditional suit jacket. Tailored from wool twill in a regular fit, it is broken up into pieces and reassembled with embroidered yarn, creating a sculptural effect. The back i'),
+(35, 'CLOUDS 90S SLIM PANTS', 15, 1, 'louis-vuitton-clouds-90s-slim-pants-ready-to-wear--HJP70WYFE600_PM2_Front view.webp', 1, 23, '2020-12-02 14:19:47', 'With its graphic Cloud motif, this Pants channels the season\'s Heaven On Earth theme. The design is digitally printed on lightweight cotton jersey, creating a vintage handcrafted feel. Tailored in a regular fit, the piece features a discreet LV Cloud signature.'),
+(36, 'GIANT DAMIER WAVES DENIM JACKET', 2, 1, 'louis-vuitton-giant-damier-waves-monogram-denim-jacket-ready-to-wear--HJA10WUZC650_PM2_Front view.webp', 0, 0, '2020-12-02 15:41:30', 'This exceptional piece channels the collection\'s reengineering of corporate dress codes, with a deconstructed version of the traditional suit jacket. Tailored from wool twill in a regular fit, it is broken up into pieces and reassembled with embroidered yarn, creating a sculptural effect. The back i'),
+(37, 'TAMBOUR SLIM MONOGRAM', 12, 1, 'louis-vuitton-tambour-slim-monogram-watches-and-jewellery--QBB162_PM2_Front view.webp', 0, 5, '2020-12-02 16:28:16', 'Distinctive yet easy to wear, this timeless watch combines a thin Tambour Slim case with a classic shade of blue. The dial is adorned with iconic Monogram Flowers in a subtle tone-on-tone motif, with polished indexes and hands adding a sophisticated note of contrast. Ideal for everyday wear, it is a'),
+(38, 'Men\'s Ace embroidered sneaker', 1, 1, '429446_02JP0_9064_002_100_0000_Light-Mens-Ace-embroidered-sneaker.png', 0, 5, '2020-12-02 16:40:31', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rating`
+-- Cấu trúc bảng cho bảng `rating`
 --
 
 CREATE TABLE `rating` (
@@ -238,7 +229,7 @@ CREATE TABLE `rating` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `report`
+-- Cấu trúc bảng cho bảng `report`
 --
 
 CREATE TABLE `report` (
@@ -250,7 +241,7 @@ CREATE TABLE `report` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Cấu trúc bảng cho bảng `role`
 --
 
 CREATE TABLE `role` (
@@ -259,7 +250,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `role`
+-- Đang đổ dữ liệu cho bảng `role`
 --
 
 INSERT INTO `role` (`idRole`, `level`) VALUES
@@ -270,7 +261,7 @@ INSERT INTO `role` (`idRole`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Cấu trúc bảng cho bảng `user`
 --
 
 CREATE TABLE `user` (
@@ -286,25 +277,25 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Đang đổ dữ liệu cho bảng `user`
 --
 
 INSERT INTO `user` (`idUser`, `fullName`, `email`, `address`, `phoneNumber`, `dateOfBirth`, `username`, `password`, `idRole`) VALUES
 (1, 'Nguyễn Trà Thanh Huy', 'huytra264@gmail.com', 'Việt Nam', '0704633073', '2001-04-26', 'thanhhuy264', '778899', 3);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `bill`
+-- Chỉ mục cho bảng `bill`
 --
 ALTER TABLE `bill`
   ADD PRIMARY KEY (`idBill`),
   ADD KEY `FK_bill_user` (`idUser`);
 
 --
--- Indexes for table `billdetail`
+-- Chỉ mục cho bảng `billdetail`
 --
 ALTER TABLE `billdetail`
   ADD PRIMARY KEY (`idBillDetails`),
@@ -312,20 +303,20 @@ ALTER TABLE `billdetail`
   ADD KEY `FK_billdetail_productdetail` (`idProductDetail`);
 
 --
--- Indexes for table `brand`
+-- Chỉ mục cho bảng `brand`
 --
 ALTER TABLE `brand`
   ADD PRIMARY KEY (`idThuongHieu`);
 
 --
--- Indexes for table `category`
+-- Chỉ mục cho bảng `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`idCategory`),
   ADD KEY `FK_category_groupproduct` (`idGroupProduct`);
 
 --
--- Indexes for table `comment`
+-- Chỉ mục cho bảng `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`idComment`),
@@ -333,20 +324,20 @@ ALTER TABLE `comment`
   ADD KEY `FK_comment_user` (`idUser`);
 
 --
--- Indexes for table `groupproduct`
+-- Chỉ mục cho bảng `groupproduct`
 --
 ALTER TABLE `groupproduct`
   ADD PRIMARY KEY (`idGroupProduct`);
 
 --
--- Indexes for table `productdetail`
+-- Chỉ mục cho bảng `productdetail`
 --
 ALTER TABLE `productdetail`
   ADD PRIMARY KEY (`idProductDetail`),
   ADD KEY `FK_productdetail_products` (`idProduct`);
 
 --
--- Indexes for table `products`
+-- Chỉ mục cho bảng `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`idProduct`),
@@ -354,158 +345,158 @@ ALTER TABLE `products`
   ADD KEY `FK_products_brand` (`idBrand`);
 
 --
--- Indexes for table `rating`
+-- Chỉ mục cho bảng `rating`
 --
 ALTER TABLE `rating`
   ADD PRIMARY KEY (`idRating`),
   ADD KEY `FK_rating_user` (`idUser`);
 
 --
--- Indexes for table `report`
+-- Chỉ mục cho bảng `report`
 --
 ALTER TABLE `report`
   ADD PRIMARY KEY (`idReport`);
 
 --
--- Indexes for table `role`
+-- Chỉ mục cho bảng `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`idRole`);
 
 --
--- Indexes for table `user`
+-- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`idUser`),
   ADD KEY `FK_user_role` (`idRole`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `bill`
+-- AUTO_INCREMENT cho bảng `bill`
 --
 ALTER TABLE `bill`
   MODIFY `idBill` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Hóa đơn', AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `billdetail`
+-- AUTO_INCREMENT cho bảng `billdetail`
 --
 ALTER TABLE `billdetail`
   MODIFY `idBillDetails` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã chi tiết hóa đơn', AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `brand`
+-- AUTO_INCREMENT cho bảng `brand`
 --
 ALTER TABLE `brand`
   MODIFY `idThuongHieu` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã thương hiệu', AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
   MODIFY `idCategory` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã loại sản phẩm', AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `comment`
+-- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
   MODIFY `idComment` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id comment', AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `groupproduct`
+-- AUTO_INCREMENT cho bảng `groupproduct`
 --
 ALTER TABLE `groupproduct`
   MODIFY `idGroupProduct` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã nhóm sản phẩm', AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `productdetail`
+-- AUTO_INCREMENT cho bảng `productdetail`
 --
 ALTER TABLE `productdetail`
-  MODIFY `idProductDetail` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id Product Detail', AUTO_INCREMENT=79;
+  MODIFY `idProductDetail` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id Product Detail', AUTO_INCREMENT=86;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `idProduct` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã sản phẩm', AUTO_INCREMENT=33;
+  MODIFY `idProduct` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã sản phẩm', AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `rating`
+-- AUTO_INCREMENT cho bảng `rating`
 --
 ALTER TABLE `rating`
   MODIFY `idRating` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id rating', AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `report`
+-- AUTO_INCREMENT cho bảng `report`
 --
 ALTER TABLE `report`
   MODIFY `idReport` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã report';
 
 --
--- AUTO_INCREMENT for table `role`
+-- AUTO_INCREMENT cho bảng `role`
 --
 ALTER TABLE `role`
   MODIFY `idRole` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id role', AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
   MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã khách hàng', AUTO_INCREMENT=2;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `bill`
+-- Các ràng buộc cho bảng `bill`
 --
 ALTER TABLE `bill`
   ADD CONSTRAINT `FK_bill_user` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `billdetail`
+-- Các ràng buộc cho bảng `billdetail`
 --
 ALTER TABLE `billdetail`
   ADD CONSTRAINT `FK_billdetail_bill` FOREIGN KEY (`idBill`) REFERENCES `bill` (`idBill`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_billdetail_productdetail` FOREIGN KEY (`idProductDetail`) REFERENCES `productdetail` (`idProductDetail`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `category`
+-- Các ràng buộc cho bảng `category`
 --
 ALTER TABLE `category`
   ADD CONSTRAINT `FK_category_groupproduct` FOREIGN KEY (`idGroupProduct`) REFERENCES `groupproduct` (`idGroupProduct`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `comment`
+-- Các ràng buộc cho bảng `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `FK_comment_products` FOREIGN KEY (`idProduct`) REFERENCES `products` (`idProduct`),
+  ADD CONSTRAINT `FK_comment_products` FOREIGN KEY (`idProduct`) REFERENCES `products` (`idProduct`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_comment_user` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `productdetail`
+-- Các ràng buộc cho bảng `productdetail`
 --
 ALTER TABLE `productdetail`
   ADD CONSTRAINT `FK_productdetail_products` FOREIGN KEY (`idProduct`) REFERENCES `products` (`idProduct`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `products`
+-- Các ràng buộc cho bảng `products`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `FK_products_brand` FOREIGN KEY (`idBrand`) REFERENCES `brand` (`idThuongHieu`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_products_category` FOREIGN KEY (`idCategory`) REFERENCES `category` (`idCategory`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `rating`
+-- Các ràng buộc cho bảng `rating`
 --
 ALTER TABLE `rating`
   ADD CONSTRAINT `FK_rating_user` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `user`
+-- Các ràng buộc cho bảng `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `FK_user_role` FOREIGN KEY (`idRole`) REFERENCES `role` (`idRole`) ON DELETE CASCADE ON UPDATE CASCADE;
