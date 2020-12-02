@@ -13,31 +13,30 @@
 
 <body>
 
-    <p class="right__desc">Bảng điều khiển</p>
     <div class="right__cards">
         <a class="right__card" href="view_product.html">
-            <div class="right__cardTitle">Sản Phẩm</div>
+            <div class="right__cardTitle">Products</div>
             <div class="right__cardNumber">72</div>
-            <div class="right__cardDesc">Xem Chi Tiết <img src="../public/assets/arrow-right.svg" alt=""></div>
+            <div class="right__cardDesc">See more <img src="../public/assets/arrow-right.svg" alt=""></div>
         </a>
         <a class="right__card" href="view_customers.html">
-            <div class="right__cardTitle">Khách Hàng</div>
+            <div class="right__cardTitle">User</div>
             <div class="right__cardNumber">12</div>
-            <div class="right__cardDesc">Xem Chi Tiết <img src="../public/assets/arrow-right.svg" alt=""></div>
+            <div class="right__cardDesc">See more <img src="../public/assets/arrow-right.svg" alt=""></div>
         </a>
         <a class="right__card" href="view_p_category.html">
-            <div class="right__cardTitle">Danh Mục</div>
+            <div class="right__cardTitle">Category</div>
             <div class="right__cardNumber">4</div>
-            <div class="right__cardDesc">Xem Chi Tiết <img src="../public/assets/arrow-right.svg" alt=""></div>
+            <div class="right__cardDesc">See more <img src="../public/assets/arrow-right.svg" alt=""></div>
         </a>
         <a class="right__card" href="view_orders.html">
-            <div class="right__cardTitle">Đơn Hàng</div>
+            <div class="right__cardTitle">Bill</div>
             <div class="right__cardNumber">72</div>
-            <div class="right__cardDesc">Xem Chi Tiết <img src="../public/assets/arrow-right.svg" alt=""></div>
+            <div class="right__cardDesc">See more <img src="../public/assets/arrow-right.svg" alt=""></div>
         </a>
     </div>
     <div class="right__table">
-        <p class="right__tableTitle">Danh sách sản phẩm</p>
+        <p class="right__tableTitle">Products list</p>
         <div class="right__tableWrapper">
             <?PHP
             if (!empty($data)) {
@@ -52,6 +51,7 @@
                             <th>Image</th>
                             <th>Flash sale</th>
                             <th>% discount</th>
+                            <th>Description</th>
                             <th>Date</th>
                             <th>Delete</th>
                             <th>Edit</th>
@@ -72,6 +72,7 @@
                                 <td><img style="width: 50px; heigh:auto;" src="<?php echo  $IMAGE_DIR.$value->imgUrl ?>"></td>
                                 <td><?php echo $value->flashSale ?></td>
                                 <td><?php echo $value->note ?></td>
+                                <td><?php echo $value->description ?></td>
                                 <td><?php echo $value->date ?></td>
                                 <td class="text-center">                                  
                                 <a href="?act=products&delete=<?PHP echo $value->idProduct ?>" class="btn-edit">Del</a>                         
@@ -87,7 +88,7 @@
                     } else { ?>
                         <h1> Hiện không có dữ liệu trong bảng</h1>
                           <div class="container">
-        <h2>Sản phẩm: <?= $getName ?> </h2>
+        <h2>Product: <?= $getName ?> </h2>
         <!-- Trigger the modal with a button -->
         <button type="button" class="btn-submit" data-toggle="modal" data-target="#myModal">Mở bảng chỉnh sửa</button>
 
@@ -159,9 +160,6 @@
                     </tbody>
                 </table>
         </div>
-        <a href="" class="right__tableMore">
-            <p>Xem tất cả các đơn đặt hàng</p> <img src="../public/assets/arrow-right-black.svg" alt="">
-        </a>
     </div>
     </div>
 </body>

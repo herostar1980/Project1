@@ -33,6 +33,7 @@ if (isset($_GET['act'])) {
                         'imgUrl' => $img,
                         'flashSale' => $_POST['flashSale'],
                         'note' => $_POST['note'],
+                        'description' => $_POST['description']
                     ];
                     if ($db->update($table, $data, $id, 'idProduct'))
                         $message = "Cập nhật thành công";
@@ -53,6 +54,7 @@ if (isset($_GET['act'])) {
                         'imgUrl' => $img,
                         'flashSale' => $_POST['flashSale'],
                         'note' => $_POST['note'],
+                        'description' => $_POST['description']
                     ];
                     if ($db->insert($table, $data))
                         $message = "Cập nhật thành công";

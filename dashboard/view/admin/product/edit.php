@@ -13,7 +13,7 @@
 <body>
 
     <div class="container">
-        <h2>Sản phẩm: <?= $getName ?> </h2>
+        <h2>Product: <?= $getName ?> </h2>
         <!-- Trigger the modal with a button -->
         <button type="button" class="btn-submit" data-toggle="modal" data-target="#myModal">Mở bảng chỉnh sửa</button>
 
@@ -58,18 +58,21 @@
                             </div>
                             <div class="form-group">
                                 <label> ImageUrl :</label>
-                                <input type="file" name="imgUrl" required value="">
+                                <input type="file" name="imgUrl" required value="<?=$data->imgUrl ?>" >
+                               <div class="imgEdit" style="width:100px"> <img src="<?=$IMAGE_DIR.$data->imgUrl ?>" alt="imgProduct"></div>
                             </div>
                             <div class="form-group">
                                 <label>is Flash Sale : </label>
-                                <select name="flashSale" class="form-control" value="">
-                                    <option value="0">NO</option>
-                                    <option value="1">YES</option>
-
+                                <select name="flashSale" id="flashSale" class="form-control" value="<?= $data->flashSale ?>">
+                                    <option <?php if($data->flashSale==0) echo'selected'; ?> value="0">No</option>
+                                    <option <?php if($data->flashSale==1) echo'selected'; ?> value="1">Yes</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label> Discount (%) :</label> <input type="text" name="note" class="form-control" value="<?= $data->note ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="description"> Description :</label> <textarea name="description" cols="30" rows="10"><?= $data->description ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label> Date :</label> <?= $data->date ?>

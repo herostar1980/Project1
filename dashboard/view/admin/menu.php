@@ -59,7 +59,7 @@
             </li>
 
             <li class="left__menuItem">
-                <a href="" class="left__title"><img src="../public/assets/icon-logout.svg" alt="">Đăng Xuất</a>
+                <a href="" class="left__title"><img src="../public/assets/icon-logout.svg" alt="">Logout</a>
             </li>
         </ul>
     </div>

@@ -14,7 +14,7 @@
                 <?php require 'menu.php' ?>
                 <div class="right">
                     <div class="right__content">
-                    <div class="right__title">Bảng điều khiển</div>
+                    <div class="right__title">DASHBOARD</div>
                     
                         <?php require $VIEW_NAME; ?>
                 </div>

@@ -2,8 +2,10 @@
     session_start();
     require_once("../model/connect.php");
     require_once("../model/shop.php");
+
 //    connect();
         $conn = connect();
+        $IMAGE_DIR =  "../images/";
     include_once "../view/header.php";
     if(isset($_GET["act"])){
         $act= $_GET["act"];
@@ -88,7 +90,8 @@
         include "../model/ProductDetail.php";
         include "../model/Products.php";
         $data = getFlashSale($conn);
-        // print_r($data);
+        $newProducts = getProductsNew($conn);
+        $bestSeller = getProductsPoppular($conn);
         $products = getAllProduct($conn);
         include_once "../view/home.php";
     }
