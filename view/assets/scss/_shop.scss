@@ -30,7 +30,7 @@
                 opacity: 0;
                 visibility: hidden;
                 @include transition(.4s);
-                span{
+                a{
                     color: #fff;
                     background: linear-gradient(90deg, #ff8e96 35%, #ff9438bf 100%);
                     padding: 10px 0;
@@ -336,7 +336,6 @@ aside{
                             background: url(../img/adapt_icon/icon_X.png) no-repeat;
                             width: 16px;
                             height: 16px;
-                            float: right;
                         }
                     }
                 }

@@ -1,5 +1,12 @@
 
   <main>
+  <?php
+  $cart=(isset($_SESSION['cart']))? $_SESSION['cart'] : [];
+  // echo'<pre>';
+  // var_dump($_SESSION['cart']);
+  
+  ?>
+
       <!-- Hero Area Start-->
       <div class="slider-area ">
           <div class="single-slider slider-height2 d-flex align-items-center">
@@ -15,6 +22,7 @@
           </div>
       </div>
       <!--================Cart Area =================-->
+      <?php foreach($cart as $k=>$v): ?>
       <section class="cart_area section_padding">
         <div class="container">
           <div class="cart_inner">
@@ -79,9 +87,10 @@
                       <h5>$720.00</h5>
                     </td>
                   </tr>
+                  <?php endforeach ?>
                   <tr class="bottom_button">
                     <td>
-                      <a class="btn_1" href="#">Update Cart</a>
+                      <a class="btn_1" href="">Update Cart</a>
                     </td>
                     <td></td>
                     <td></td>

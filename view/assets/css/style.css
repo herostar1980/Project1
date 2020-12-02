@@ -7970,7 +7970,7 @@ input:focus {
   -o-transition: 0.4s;
   transition: 0.4s;
 }
-.product-wrapper .single-product-items .product-img .img-cap span {
+.product-wrapper .single-product-items .product-img .img-cap a {
   color: #fff;
   background: linear-gradient(90deg, #ff8e96 35%, #ff9438bf 100%);
   padding: 10px 0;
