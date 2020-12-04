@@ -1,7 +1,13 @@
 <?php
+
 require_once("../model/function.php");
 $db = new Database();
 include_once("../core/app.php");
+if(isset($_SESSION['username']) && $_SESSION['username ']!= '' ) { 
+    $data = $_SESSION['username'];
+    echo $data->idUser;
+}
+
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
