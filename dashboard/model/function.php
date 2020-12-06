@@ -200,7 +200,7 @@ class Database
         $sql = 'SELECT prd.idProduct, prd.nameProduct,pd.idProductDetail,pd.quantity
                 FROM products as prd, productdetail as pd
                 WHERE prd.idProduct = pd.idProduct && pd.quantity <= 10
-                GROUP BY prd.idProduct ,prd.nameProduct ORDER BY pd.quantity DESC limit 10';
+                GROUP BY prd.idProduct ,prd.nameProduct ORDER BY prd.idProduct ASC ';
         $data = null;
         if ($result = mysqli_query($this->conn, $sql)) {
             while ($row = mysqli_fetch_object($result)) {
@@ -216,7 +216,7 @@ class Database
         $sql = 'SELECT prd.idProduct, prd.nameProduct,pd.idProductDetail,pd.quantity
                 FROM products as prd, productdetail as pd
                 WHERE prd.idProduct = pd.idProduct && pd.quantity >= 30
-                GROUP BY prd.idProduct ,prd.nameProduct ORDER BY pd.quantity DESC limit 10';
+                GROUP BY prd.idProduct ,prd.nameProduct ORDER BY prd.idProduct ASC ';
         $data = null;
         if ($result = mysqli_query($this->conn, $sql)) {
             while ($row = mysqli_fetch_object($result)) {
