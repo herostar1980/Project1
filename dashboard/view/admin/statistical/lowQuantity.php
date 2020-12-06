@@ -40,9 +40,10 @@
             <?PHP
             if (!empty($data)) {
             ?>
-                <table>
+               <table>
                     <thead>
                         <tr>
+                            <th>STT</th>
                             <th>ID Product</th>
                             <th>Name Product</th>
                             <th>ID Product Detail</th>
@@ -52,10 +53,11 @@
                     </thead>
 
                     <tbody>
-                        <?php
-
+                        <?php  
+                        $i = 1;                     
                         foreach ($data as $value) {         ?>
                             <tr>
+                                <td><?PHP echo $i++ ?></td>
                                 <td><?php echo $value->idProduct ?></td>
                                 <td><?php echo $value->nameProduct ?></td>
                                 <td><?php echo $value->idProductDetail ?></td>

@@ -52,11 +52,11 @@
 
                     <tbody>
                         <?php
-                        $i = 0;
+                        $i = 1;
                         $total = 0;
                         foreach ($data as $value) {         ?>
                             <tr>
-                                <td><?php echo $i+1?></td>
+                                <td><?php echo $i++?></td>
                                 <td><?php echo $value->date ?></td>
                                 <td><?php echo $value->totalDay?></td>
                                 <?PHP $total += $value->totalDay ?>

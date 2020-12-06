@@ -81,9 +81,6 @@
                     </tbody>
                 </table>
         </div>
-        <a href="" class="right__tableMore">
-            <p>Xem tất cả các đơn đặt hàng</p> <img src="../public/assets/arrow-right-black.svg" alt="">
-        </a>
     </div>
     </div>
 </body>
